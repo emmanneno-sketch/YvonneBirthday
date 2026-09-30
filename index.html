@@ -1,0 +1,580 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Yvonne ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #ffd6e7,
+                #f8b6d2
+            );
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+
+        /* MAIN CARD */
+
+        .card {
+            width: 90%;
+            max-width: 420px;
+
+            padding: 35px 20px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.2);
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+        /* TEXT */
+
+        h1 {
+            color: #9b2c6b;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #b83280;
+            font-size: 24px;
+        }
+
+        p {
+            color: #6b214f;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+
+        /* BUTTON */
+
+        button {
+            padding: 14px 24px;
+
+            margin-top: 15px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #9b2c6b;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+
+        /* HIDDEN SCREENS */
+
+        .hidden {
+            display: none;
+        }
+
+
+        /* CELEBRATION EMOJIS */
+
+        .celebration {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+
+        /* BALLOONS */
+
+        .balloon {
+            position: fixed;
+
+            width: 55px;
+            height: 70px;
+
+            border-radius: 50%;
+
+            bottom: -100px;
+
+            animation:
+                floatUp 7s linear infinite;
+
+            z-index: 1;
+        }
+
+
+        .balloon::after {
+            content: "";
+
+            position: absolute;
+
+            width: 2px;
+            height: 70px;
+
+            background: #555;
+
+            left: 50%;
+            top: 68px;
+        }
+
+
+        .balloon1 {
+            background: #ff4f81;
+
+            left: 10%;
+
+            animation-delay: 0s;
+        }
+
+
+        .balloon2 {
+            background: #7b68ee;
+
+            left: 45%;
+
+            animation-delay: 2s;
+        }
+
+
+        .balloon3 {
+            background: #ffb347;
+
+            right: 10%;
+
+            animation-delay: 4s;
+        }
+
+
+        @keyframes floatUp {
+
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* CONFETTI */
+
+        .confetti {
+            position: fixed;
+
+            width: 8px;
+            height: 14px;
+
+            top: -20px;
+
+            z-index: 2;
+
+            animation:
+                fall 4s linear infinite;
+        }
+
+
+        @keyframes fall {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- BALLOONS -->
+
+    <div class="balloon balloon1"></div>
+
+    <div class="balloon balloon2"></div>
+
+    <div class="balloon balloon3"></div>
+
+
+    <!-- MAIN CARD -->
+
+    <div class="card">
+
+
+        <!-- ========================= -->
+        <!-- OPENING SCREEN -->
+        <!-- ========================= -->
+
+        <div id="opening">
+
+            <div class="celebration">
+                👀
+            </div>
+
+            <h1>
+                YVONNE...
+            </h1>
+
+            <h2>
+                I have something important
+                to tell you.
+            </h2>
+
+            <p>
+                But first... you have to
+                press the button. 😌
+            </p>
+
+            <button onclick="startBirthday()">
+
+                Open Your Surprise ❤️
+
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- BIRTHDAY SCREEN -->
+        <!-- ========================= -->
+
+        <div id="birthday" class="hidden">
+
+            <div class="celebration">
+                🎉🎈🎉
+            </div>
+
+            <h1>
+                HAPPY BIRTHDAY!
+            </h1>
+
+            <h2>
+                YVONNE ❤️
+            </h2>
+
+            <p>
+                Wishing you a beautiful day
+                filled with happiness,
+                laughter and love.
+            </p>
+
+            <p>
+                But wait...
+
+                I may have prepared
+                something else. 👀
+            </p>
+
+            <button onclick="firstSurprise()">
+
+                Curious to know? Click here... 👀
+
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- FIRST SURPRISE -->
+        <!-- ========================= -->
+
+        <div id="surprise1" class="hidden">
+
+            <div class="celebration">
+                😂🎉
+            </div>
+
+            <h1>
+                Congratulations!
+            </h1>
+
+            <p>
+                You've officially survived
+                another year of life. 😂
+            </p>
+
+            <p>
+                Honestly...
+
+                impressive. 👏😂
+            </p>
+
+            <button onclick="secondSurprise()">
+
+                Yooh, still got something to say 😌
+
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- SECOND SURPRISE -->
+        <!-- ========================= -->
+
+        <div id="surprise2" class="hidden">
+
+            <div class="celebration">
+                😌😂
+            </div>
+
+            <h1>
+                One More Thing...
+            </h1>
+
+            <p>
+                You know we celebrate birthdays more often...
+            </p>
+
+            <p>
+                Not knowing that it is our countdown ...
+Anyway HAPPY BIRTHDAY NYAKO.... someone is getting OLDER 😌😂
+            </p>
+
+            <button onclick="finalSurprise()">
+
+                Finally... 😌
+
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- FINAL SURPRISE -->
+        <!-- ========================= -->
+
+        <div id="final" class="hidden">
+
+            <div class="celebration">
+                🎊🎂🎊
+            </div>
+
+            <h1>
+                HAPPY BIRTHDAY,
+                YVONNE! ❤️
+            </h1>
+
+            <p>
+                Okay okay, enough nonsense 😂❤️
+            </p>
+
+            <p>
+                Happy Birthday, Yvonne! 🎂
+            </p>
+
+            <p>
+                I hope today gives you plenty
+                of reasons to smile. ❤️
+            </p>
+
+            <div class="celebration">
+                ❤️🎂❤️
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* ========================= */
+        /* START BIRTHDAY */
+        /* ========================= */
+
+        function startBirthday() {
+
+            document
+                .getElementById("opening")
+                .classList.add("hidden");
+
+            document
+                .getElementById("birthday")
+                .classList.remove("hidden");
+
+            createConfetti();
+
+        }
+
+
+        /* ========================= */
+        /* FIRST SURPRISE */
+        /* ========================= */
+
+        function firstSurprise() {
+
+            document
+                .getElementById("birthday")
+                .classList.add("hidden");
+
+            document
+                .getElementById("surprise1")
+                .classList.remove("hidden");
+
+        }
+
+
+        /* ========================= */
+        /* SECOND SURPRISE */
+        /* ========================= */
+
+        function secondSurprise() {
+
+            document
+                .getElementById("surprise1")
+                .classList.add("hidden");
+
+            document
+                .getElementById("surprise2")
+                .classList.remove("hidden");
+
+        }
+
+
+        /* ========================= */
+        /* FINAL SURPRISE */
+        /* ========================= */
+
+        function finalSurprise() {
+
+            document
+                .getElementById("surprise2")
+                .classList.add("hidden");
+
+            document
+                .getElementById("final")
+                .classList.remove("hidden");
+
+            createConfetti();
+
+        }
+
+
+        /* ========================= */
+        /* CREATE CONFETTI */
+        /* ========================= */
+
+        function createConfetti() {
+
+            for (let i = 0; i < 60; i++) {
+
+                let piece =
+                    document.createElement("div");
+
+                piece.classList.add("confetti");
+
+                piece.style.left =
+                    Math.random() * 100 + "%";
+
+                piece.style.backgroundColor =
+                    randomColor();
+
+                piece.style.animationDelay =
+                    Math.random() * 4 + "s";
+
+                document.body.appendChild(piece);
+
+            }
+
+        }
+
+
+        /* ========================= */
+        /* RANDOM COLORS */
+        /* ========================= */
+
+        function randomColor() {
+
+            const colors = [
+
+                "#ff4f81",
+                "#7b68ee",
+                "#ffb347",
+                "#4caf50",
+                "#2196f3",
+                "#e91e63"
+
+            ];
+
+            return colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
+```
